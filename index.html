@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Chronicles of Elarion</title>
+  <link rel="stylesheet" href="lib/style.css">
+</head>
+<body>
+  <header></header>
+  <main>
+    <section id="scene1" class="scene active">
+      <img class="backgroundscene" src="https://i.postimg.cc/TPSftnYL/Chat-GPT-Image-4-2025-18-17-42.png" />
+      <h1>Chronicles of Elarion</h1>
+     <button class="Btn" onclick="goToScene('scene2')">Почати пригоду</button>
+    </section>
+
+    <section id="scene2" class="scene">
+      <img class="backgroundscene" src="https://i.postimg.cc/TPSftnYL/Chat-GPT-Image-4-2025-18-17-42.png" />
+      <div class="map">
+        <img class="map1" src="https://i.postimg.cc/gjQJRv9K/Chat-GPT-Image-4-2025-16-03-40-1.png" alt="Карта"/>
+        <a class="forestgoblins" id="goblin-btn" href="#" onclick="goToScene('scene4')">
+          <img src="https://i.postimg.cc/857p9XMN/Chat-GPT-Image-4-2025-15-49-49-1.png" width="50" height="50" />
+        </a>
+        <a class="vulkandragon disabled" href="#" onclick="lockedScene(event)">
+  <img src="https://i.postimg.cc/j5Bxb64N/Chat-GPT-Image-4-2025-16-26-07-1.png " width="50" height="50" />
+</a>
+        <a class="seadragon" id="seadragon-btn" href="#" onclick="goToScene('scene5')">
+          <img src="https://i.postimg.cc/zGYrpXxz/Chat-GPT-Image-4-2025-16-33-25-2.png" width="50" height="50" />
+        </a>
+        <a class="raindbowelf disabled" href="#" onclick="lockedScene(event)">
+          <img src="https://i.postimg.cc/sXxd1Bgc/Chat-GPT-Image-4-2025-16-39-51-1.png" width="50" height="50" />
+        </a>
+      </div>
+    </section>
+
+    <section id="scene4" class="scene">
+      <img class="backgroundscene" src="https://i.postimg.cc/ZK1tfKK7/Chat-GPT-Image-7-2025-17-28-58.png" alt="Фон сцени 4"/>
+      <div class="quest">
+        <h2>Квест: Ліс Гоблінів</h2>
+        <p>Ти заходиш у темний ліс. Попереду гоблін. Він щось охороняє.</p>
+        <p>Що ти зробиш?</p>
+        <button onclick="choose('talk')">Поговорити з гобліном</button>
+        <button onclick="choose('sneak')">Спробувати обійти</button>
+        <button onclick="choose('fight')">Напасти</button>
+        <div id="result"></div>
+        <div id="cave-quest" style="display:none;">
+          <p>Ти вже знайшов магічні фрукти в печері. Вони світяться та пульсують енергією у твоїх руках.</p>
+          <p>Що ти зробиш з ними?</p>
+          <button onclick="caveChoice('eat')">З’їсти фрукт</button>
+          <button onclick="caveChoice('keep')">Зберегти на потім</button>
+        </div>
+        <div id="cave-result"></div>
+      </div>
+    </section>
+
+    <section id="scene5" class="scene">
+      <img class="backgroundscene" src="https://i.postimg.cc/4ycR6mhT/Chat-GPT-Image-7-2025-21-52-55.png" />
+      <div class="quest">
+        <h2>Квест: Морський Змій</h2>
+        <p>Ти знаходиш велетенського морського змія біля озера. Його очі сповнені болю та надії.</p>
+        <p>Він дивиться на фрукт у твоїх руках. Очевидно, що саме цього він чекав…</p>
+        <p>Що ти зробиш?</p>
+        <button onclick="seadragonChoice('give')">Віддати фрукт</button>
+        <button onclick="seadragonChoice('refuse')">Не втручатись</button>
+        <div id="seadragon-result"></div>
+      </div>
+    </section>
+
+    <section id="scene6" class="scene">
+      <img class="backgroundscene" src="https://i.postimg.cc/2yRrnwKG/Chat-GPT-Image-9-2025-16-11-47.png" />
+      <div class="dialogue">
+        <h2>Райдужний Ельф</h2>
+        <p><strong>Ельф:</strong> Вітаю, мандрівнику. Я — Ліаріель, хранитель веселкових джерел і останній маг древньої епохи 🌈✨.</p>
+        <p>Ти, певно, дивуєшся, чому ця долина палає всіма барвами. Це — місце сили, де перетинаються світлі потоки енергії.</p>
+        <p>Колись ми, ельфи, творили гармонію між стихіями: повітря, води, вогню та світла. Та лиш я залишився стерегти ці знання...</p>
+        <p>У тебе в очах — відвага. А ще... відлуння темряви, що насувається.</p>
+        <p>Тобі знадобиться зброя не проста, а створена з самої веселки — чарівний меч, що розсікає ілюзії та розкриває істину 🌈🗡.</p>
+        <p>Я віддам його лише тому, хто приніс Амулет Древніх Вод. Лише той довів, що гідний доторкнутися до глибшого знання.</p>
+      </div>
+      <button onclick="showElfInfo()">Запитати про Ельфа</button>
+      <button onclick="showWorldInfo()">Запитати про світ</button>
+      <button onclick="showAmuletInfo()">Запитати про амулет та меч</button>
+      <button onclick="buySword()" id="exchange-amulet-btn" style="display:none;">Обміняти амулет на меч</button>
+      <div id="elf-result"></div>
+    </section>
+
+    <section id="scene7" class="scene">
+  <img class="backgroundscene" src="https://i.postimg.cc/Bvv0Fn4h/Chat-GPT-Image-10-2025-20-59-03.png " />
+  <div class="quest">
+    <h2>Фінальна битва з вулканічним драконом!</h2>
+    <p id="dragonStatus">Дракон має 150 HP</p>
+    <p id="playerStatus">У тебе 100 HP</p>
+    <button onclick="attackDragon()">Атакувати</button>
+    <div id="battle-result"></div>
+  </div>
+</section>
+    <section id="scene8" class="scene">
+      <img class="backgroundscene" src="https://i.postimg.cc/c6qqJ6yr/Chat-GPT-Image-11-2025-15-27-37.png" />
+      <div class="dialogue">
+        <h2>Ти повернувся додому</h2>
+        <p class="endtext">Світ Еларіонії зникає в тумані, але спогади про твою подорож залишаються назавжди...</p>
+        <p class="theend">Кінець</p>
+      </div>
+    </section>
+
+  <button id="restart-btn" style="position: fixed; bottom: 20px; left: 20px;">Почати заново</button>
+  </main>
+  <footer></footer>
+  <div id="inventory" class="inventory-panel">
+  <h3>🎒 Інвентар:</h3>
+  <ul id="inventory-list"></ul>
+</div>
+<div id="hint" class="hint-box" style="display:none;"></div>
+  <script src="lib/script.js"></script>
+</body>
+</html>
