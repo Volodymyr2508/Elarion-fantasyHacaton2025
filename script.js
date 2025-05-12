@@ -154,7 +154,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // === Розблокування дракона при завантаженні сторінки ===
     const vulcanBtn = document.querySelector(".vulkandragon");
     if (vulcanBtn) {
       if (localStorage.getItem("hasSword") === "true") {
